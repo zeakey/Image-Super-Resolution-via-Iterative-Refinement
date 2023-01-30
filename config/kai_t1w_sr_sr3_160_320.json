@@ -9,18 +9,18 @@
         "tb_logger": "tb_logger",
         "results": "results",
         "checkpoint": "checkpoint",
-        "resume_state": null
+        "resume_state": "experiments/t1w_8bits_160_320_230126_235617/checkpoint/I410000_E131"
         // "resume_state": "experiments/distributed_high_sr_ffhq_210901_121212/checkpoint/I830000_E32" //pretrain model or training state
     },
     "datasets": {
         "train": {
             "name": "T1W",
             "mode": "HR", // whether need LR img
-            "dataroot": "/media/hdd2/datasets/SR3/prostate_t1w_train_8bits_160_320",
+            "dataroot": "data/t1w_8bits/train/sr3_160_320",
             "datatype": "img", //lmdb or img, path of img files
             "l_resolution": 160, // low resolution need to super_resolution
             "r_resolution": 320, // high resolution
-            "batch_size": 2,
+            "batch_size": 4,
             "num_workers": 8,
             "use_shuffle": true,
             "data_len": -1 // -1 represents all data used in train
@@ -28,7 +28,7 @@
         "val": {
             "name": "T1W",
             "mode": "LRHR",
-            "dataroot": "/media/hdd2/datasets/SR3/prostate_t1w_train_8bits_160_320",
+            "dataroot": "data/t1w_8bits/train/sr3_160_320",
             "datatype": "img", //lmdb or img, path of img files
             "l_resolution": 160,
             "r_resolution": 320,
@@ -73,7 +73,7 @@
             }
         },
         "diffusion": {
-            "image_size": 512,
+            "image_size": 320,
             "channels": 3, //sample channel
             "conditional": true // unconditional generation or unconditional generation(super_resolution)
         }
